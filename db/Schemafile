@@ -1,2 +1,8 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
+
+schemas_path = Pathname.new(__FILE__).parent.join('schemas').realpath.to_path
+
+Dir[schemas_path << '/*.schema'].sort.each do |schema|
+  require schema
+end
